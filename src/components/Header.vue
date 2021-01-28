@@ -6,19 +6,18 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
 };
 </script>
 
 <style scoped>
-
 #component-container {
   text-align: center;
   font-family: sans-serif;
 }
 
 h1 {
-  color: var(--main-colour)
+  color: var(--main-colour);
 }
 </style>
 
