@@ -2,7 +2,10 @@
   <div>
     <Header />
     <div id="container">
-      <ListComponent :todoList="todoListArray" />
+      <InputField :todoListArray="todoListArray" />
+    </div>
+    <div id="container" v-if="todoListArray[0] != (null || undefined)">
+      <ListComponent :todoListArray="todoListArray" />
     </div>
   </div>
 </template>
@@ -10,33 +13,19 @@
 <script>
 // Import components
 import Header from "./components/Header";
+import InputField from "./components/InputField";
 import ListComponent from "./components/ListComponent";
 
 export default {
   name: "App",
   data: function () {
     return {
-      todoListArray: [
-        {
-          taskName: "Test Application",
-          taskDescription: "Check if this thing works",
-          taskComplete: false,
-        },
-        {
-          taskName: "Second Widget Test",
-          taskDescription: "Check if the list function is working",
-          taskComplete: false,
-        },
-        {
-          taskName: "Third Widget Test",
-          taskDescription: "Just to see if this list thing works properly",
-          taskComplete: false,
-        },
-      ],
+      todoListArray: [],
     };
   },
   components: {
     Header,
+    InputField,
     ListComponent,
   },
 };
@@ -51,9 +40,7 @@ export default {
   --lighter-background-colour: #fafcff;
 
   /* Main colours */
-  --main-colour: #d553f1;
-  --main-colour-lighter: #eba3dd;
-  --main-colour-lightest: #f6cbd0;
+  --main-colour: lightblue;
 
   /* Secondary colours */
   --secondary-colour: #6690fb;
@@ -69,6 +56,7 @@ export default {
   padding: 0;
   margin: 0;
   font-family: Overpass Mono;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -76,11 +64,10 @@ body {
 }
 
 #container {
-  margin: auto;
+  margin: 25px auto auto auto;
   width: 80%;
   padding: 10px 5px 10px 5px;
   background-color: var(--darker-background-colour);
   border-radius: 10px;
-  margin: auto;
 }
 </style>
